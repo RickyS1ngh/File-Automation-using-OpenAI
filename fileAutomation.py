@@ -10,12 +10,13 @@ def fileMove(file, targetPath, path):
         fileName = file.name
     else:
         fileName = file.split("/")[-1]
-    if (not os.path.exists(targetFolder)):  # Check if the target folder exists
-        os.makedirs(targetFolder)  # Creates the directory
-    targetFilePath= os.path.join(targetFolder, fileName)
+    if (not os.path.exists(targetFolderPath)):  # Check if the target folder exists
+        os.makedirs(targetFolderPath)  # Creates the directory
+    targetFilePath= os.path.join(targetFolderPath, fileName)
     if (not os.path.exists(targetFilePath) #Checks if the path exists with the file, if it doesnt, the file is moved
         ):  # Checks if a file with the name exists in the directory
-        shutil.move(file, targetFolder)  # moves file
+        shutil.move(file, targetFolderPath)  # moves file
+        print(f"{fileName} has moved to {targetFolderPath}")
     else:
         if os.stat(file).st_size == os.stat(targetFilePath).st_size: #Checks if the file in the target folder is the the same file. Removes the file if it is the same file
             print(f"{fileName} already exists. It will be deleted")
