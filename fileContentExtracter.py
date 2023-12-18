@@ -19,5 +19,3 @@ def contentExtracter(file, extension):
             doc = docx.Document(file)
             fileContents = doc.paragraphs[0]
         return fileContents
-            
-        
